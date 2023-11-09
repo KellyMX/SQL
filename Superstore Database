@@ -30,28 +30,28 @@ VALUES
 
 # Make a table to better visualize the data.
 SELECT *
-FROM superstore
+FROM superstore;
 
 # Order the items by price.
 SELECT item_name, price
 FROM superstore
-Order BY price
+Order BY price;
 
 # How much would it be to buy 1 of each item at the Superstore?
 SELECT SUM(price)
-FROM superstore
+FROM superstore;
 
 # How many kitchen supplies items are there?
 SELECT COUNT(category)
 FROM superstore
-WHERE category='Kitchen Supplies'
+WHERE category='Kitchen Supplies';
 
 # Which item is the cheapest, and what is the price?
 SELECT distinct item_name, price
 FROM superstore
-WHERE price in (SELECT min(price) FROM superstore)
+WHERE price in (SELECT min(price) FROM superstore);
 
 # Which item is the most expensive, and what is the price?
 SELECT distinct item_name, price
 FROM superstore
-WHERE price in (SELECT max(price) FROM superstore)
+WHERE price in (SELECT max(price) FROM superstore);
