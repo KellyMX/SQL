@@ -49,4 +49,17 @@ FROM BIT_DB.spotifydata
 ORDER BY duration_ms desc
 LIMIT 1
 
-#What's the average danceability for the 10 most popular songs?
+#Then I determined the 10 most popular songs.
+SELECT track_name
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10
+
+#Followed by finding the average danceability for the 10 most popular songs?
+SELECT avg(danceability)
+FROM BIT_DB.spotifydata
+WHERE track_name
+IN(SELECT track_name
+FROM BIT_DB.spotifydata
+ORDER BY popularity desc
+LIMIT 10)
